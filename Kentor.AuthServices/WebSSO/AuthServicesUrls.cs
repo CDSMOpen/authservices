@@ -81,6 +81,9 @@ namespace Kentor.AuthServices.WebSso
             }
 
             var authServicesRoot = applicationUrl.AbsoluteUri.TrimEnd('/') + modulePath + "/";
+            
+            //Force https
+            authServicesRoot = authServicesRoot.Replace("http:", "https:");
 
             AssertionConsumerServiceUrl = new Uri(authServicesRoot + CommandFactory.AcsCommandName);
             SignInUrl = new Uri(authServicesRoot + CommandFactory.SignInCommandName);
